@@ -1,5 +1,5 @@
 {
-    "name": "liip/imagine-bundle",
+    "name": "prolix/imagine-bundle",
     "type": "symfony-bundle",
     "description": "This bundle provides an image manipulation abstraction toolkit for Symfony-based projects.",
     "keywords": [ "imagine", "image", "manipulation", "pictures", "photos", "transformation", "bundle", "symfony", "liip" ],
@@ -19,7 +19,7 @@
     },
     "require": {
         "php": "~7.1",
-        "imagine/Imagine": "^0.6.3,<0.7",
+        "prolix/Imagine": "^0.6.3,<0.7",
         "symfony/asset": "~3.0",
         "symfony/filesystem": "~3.0",
         "symfony/finder": "~3.0",
