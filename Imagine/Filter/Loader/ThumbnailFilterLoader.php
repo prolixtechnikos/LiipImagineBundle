@@ -36,7 +36,7 @@ class ThumbnailFilterLoader implements LoaderInterface
 
         $width = isset($options['size'][0]) ? $options['size'][0] : null;
         $height = isset($options['size'][1]) ? $options['size'][1] : null;
-
+        $border = isset($options['border']) ? $options['border'] : false;
         $size = $image->getSize();
         $origWidth = $size->getWidth();
         $origHeight = $size->getHeight();
@@ -52,7 +52,7 @@ class ThumbnailFilterLoader implements LoaderInterface
         if (($origWidth > $width || $origHeight > $height)
             || (!empty($options['allow_upscale']) && ($origWidth !== $width || $origHeight !== $height))
         ) {
-            $filter = new Thumbnail(new Box($width, $height), $mode, $filter);
+            $filter = new Thumbnail(new Box($width, $height), $mode, $filter, $border);
             $image = $filter->apply($image);
         }
 
