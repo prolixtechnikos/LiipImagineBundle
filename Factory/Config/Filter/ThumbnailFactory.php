@@ -49,7 +49,7 @@ final class ThumbnailFactory implements FilterFactoryInterface
         $mode = $options['mode'] ?? null;
         $allowUpscale = $options['allow_upscale'] ?? null;
         $filter = $options['filter'] ?? null;
-
-        return new Thumbnail($size, $mode, $allowUpscale, $filter);
+        $border = $options['border'] ? $options['border'] : false;
+        return new Thumbnail($size, $mode, $allowUpscale, $filter, $border);
     }
 }
