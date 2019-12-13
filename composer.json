@@ -19,7 +19,7 @@
     },
     "require": {
         "php": "~7.1",
-        "prolix/Imagine": "1.2.*",
+        "prolix/imagine": "1.2.*",
         "symfony/asset": "^3.4|^4.2",
         "symfony/filesystem": "^3.4|^4.2",
         "symfony/finder": "^3.4|^4.2",
