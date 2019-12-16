@@ -44,8 +44,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('liip_imagine', 'array');
+        $treeBuilder = new TreeBuilder('liip_imagine');
+        $rootNode = $treeBuilder->getRootNode();
 
         $resolversPrototypeNode = $rootNode
             ->children()
