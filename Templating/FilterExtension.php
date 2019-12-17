@@ -10,8 +10,9 @@
  */
 
 namespace Liip\ImagineBundle\Templating;
+use Twig\Extension\AbstractExtension;
 
-class FilterExtension extends \Twig_Extension
+class FilterExtension extends AbstractExtension
 {
     use FilterTrait;
 
