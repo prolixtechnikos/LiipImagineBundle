@@ -11,6 +11,7 @@
 
 namespace Liip\ImagineBundle\Templating;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 class FilterExtension extends AbstractExtension
 {
@@ -22,7 +23,7 @@ class FilterExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('imagine_filter', [$this, 'filter']),
+            new TwigFilter('imagine_filter', [$this, 'filter']),
         ];
     }
 }
