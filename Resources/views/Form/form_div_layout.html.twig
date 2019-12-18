@@ -1,5 +1,4 @@
 {% block liip_imagine_image_widget %}
-    {% spaceless %}
         {% if image_path %}
             <div>
                 {% if link_url %}
@@ -15,5 +14,4 @@
         {% endif %}
 
         {{ block('form_widget_simple') }}
-    {% endspaceless %}
 {% endblock %}
