@@ -24,8 +24,8 @@ class FileSystemLoaderFactory extends AbstractLoaderFactory
     public function create(ContainerBuilder $container, $loaderName, array $config)
     {
         $definition = $this->getChildLoaderDefinition();
-        $definition->replaceArgument(2, new Reference(sprintf('liip_imagine.binary.locator.%s', $config['locator'])));
-        $definition->replaceArgument(3, $this->resolveDataRoots($config['data_root'], $config['bundle_resources'], $container));
+        $definition->replaceArgument(0, new Reference(sprintf('liip_imagine.binary.locator.%s', $config['locator'])));
+        $definition->replaceArgument(1, $this->resolveDataRoots($config['data_root'], $config['bundle_resources'], $container));
 
         return $this->setTaggedLoaderDefinition($loaderName, $definition, $container);
     }

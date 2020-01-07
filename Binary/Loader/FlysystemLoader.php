@@ -15,6 +15,7 @@ use League\Flysystem\FilesystemInterface;
 use Liip\ImagineBundle\Exception\Binary\Loader\NotLoadableException;
 use Liip\ImagineBundle\Model\Binary;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface;
+use Symfony\Component\Mime\MimeTypes;
 
 class FlysystemLoader implements LoaderInterface
 {
@@ -23,16 +24,9 @@ class FlysystemLoader implements LoaderInterface
      */
     protected $filesystem;
 
-    /**
-     * @var ExtensionGuesserInterface
-     */
-    protected $extensionGuesser;
-
     public function __construct(
-        ExtensionGuesserInterface $extensionGuesser,
         FilesystemInterface $filesystem)
     {
-        $this->extensionGuesser = $extensionGuesser;
         $this->filesystem = $filesystem;
     }
 
@@ -44,13 +38,13 @@ class FlysystemLoader implements LoaderInterface
         if ($this->filesystem->has($path) === false) {
             throw new NotLoadableException(sprintf('Source image "%s" not found.', $path));
         }
-
+        $mimeTypes = new MimeTypes();
         $mimeType = $this->filesystem->getMimetype($path);
 
         return new Binary(
             $this->filesystem->read($path),
             $mimeType,
-            $this->extensionGuesser->guess($mimeType)
+            $mimeTypes->guess($mimeType)
         );
     }
 }

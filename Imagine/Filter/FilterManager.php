@@ -153,7 +153,7 @@ class FilterManager
         }
 
         $filteredFormat = isset($config['format']) ? $config['format'] : $binary->getFormat();
-        $filteredContent = $image->get($filteredFormat, $options);
+        $filteredContent = $image->get($filteredFormat[0], $options);
         $filteredMimeType = $filteredFormat === $binary->getFormat() ? $binary->getMimeType() : $this->mimeTypeGuesser->guess($filteredContent);
 
         // We are done with the image object so we can destruct the this because imagick keeps consuming memory if we don't
